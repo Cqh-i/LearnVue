@@ -48,8 +48,17 @@ const app = new Vue({
   computed: {
     totalPrice() {
       let totalPrice = 0;
-      for(let i = 0; i < this.books.length; i++){
-        totalPrice += this.books[i].price * this.books[i].count;
+      //1.普通for循环
+      // for(let i = 0; i < this.books.length; i++){
+      //   totalPrice += this.books[i].price * this.books[i].count;
+      // }
+      //2.for(let i in this.books)
+      // for(let i in this.books) {
+      //   totalPrice += this.books[i].price * this.books[i].count;
+      // }
+      // 3. for(let i of this.books)
+      for(let item of this.books){
+        totalPrice += item.price * item.count;
       }
       return totalPrice;
     }
